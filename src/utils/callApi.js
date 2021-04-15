@@ -1,18 +1,13 @@
-import { API_HOST } from '../constants/config'
+import { API_HOST, WEATHER_API_KEY } from '../constants/config'
 import axios from 'axios'
 //call-api
-export async function callApi(endpoint, method = 'GET', body, config) {
+export default async function callApiWeather(params) {
     try {
-        let dataQuery = { data: body }
-        if (method === 'GET') {
-            dataQuery = { params: body }
-        }
+        params.appid = WEATHER_API_KEY;
         const response = await axios({
-            method: method,
-            url: `endpoint`,
+            method: 'GET',
             baseURL: API_HOST,
-            ...dataQuery,
-            ...config,
+            params
         })
         return response.data
     } catch (err) {

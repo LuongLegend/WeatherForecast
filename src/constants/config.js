@@ -1,4 +1,4 @@
-export const API_HOST = ''
+export const API_HOST = 'https://api.openweathermap.org/data/2.5/onecall'
 export const WEATHER_API_KEY = '2aa982d4428638fcd1d1c064faea01ca'
 // export const CITY = [
 //     'TP.Hồ Chí Minh',
