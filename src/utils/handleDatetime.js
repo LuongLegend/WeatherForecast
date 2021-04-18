@@ -1,7 +1,7 @@
 import moment from 'moment';
-export const timestampToDate = (timestamp, format = 'DD/MM/YYYY') => {
-    const day = moment.unix(timestamp);
-    return day.format(format);
+import 'moment/locale/vi';
+export const timestampToDate = (timestamp, format = 'DD/MM/YYYY', lang='vi') => {
+    return moment.unix(timestamp).locale(lang).format(format);
 }
 
 export const momentObjectToDateString = (momentObject, format = 'DD/MM/YYYY') => {
@@ -18,3 +18,4 @@ export const timestampToMomentObject = (time) => {
 export const getCurrentTimestamp = () => {
     return Math.ceil(new Date().getTime() / 1000);
 }
+

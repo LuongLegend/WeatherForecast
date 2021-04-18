@@ -1,0 +1,48 @@
+.current-date {
+    text-transform: uppercase;
+    color: red;
+    font-size: 2rem;
+}
+
+.current-description {
+    color: blue;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.current-info {
+    display: grid;
+    width: fit-content;
+    margin: 0 auto;
+    grid-template-columns: auto auto auto auto;
+    grid-gap: 10px;
+    padding: 10px;
+    &__item1, &__item2,&__item3,&__item4,&__item5 {
+        line-height: 1em;
+    }
+    &__item1 {
+        grid-column-start: 1;
+        grid-column-end: 3;
+    }
+
+    &__item2 {
+        grid-column-start: 3;
+        grid-column-end: 5;
+        &::after{
+            content: ' m/s'
+        }
+    }
+
+    &__item3 {
+        &::after{
+            content: '%';
+        }
+    }
+    &__item4 {
+        grid-column-start: 2;
+        grid-column-end: 4;
+        &::after{
+            content: 'm';
+        }
+    }
+}
