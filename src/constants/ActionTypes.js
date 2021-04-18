@@ -13,5 +13,5 @@ export const GET_HOURLY_FAILED = 'GET_HOURLY_FAILED'
 export const GET_CURRENT_SUCCESS = 'GET_CURRENT_SUCCESS'
 export const GET_CURRENT_FAILED = 'GET_CURRENT_FAILED'
 //position
-// export const SHOW_LOADING = 'SHOW_LOADING'
+export const CHANGE_DT = 'CHANGE_DT'
 // export const HIDE_LOADING = 'HIDE_LOADING'

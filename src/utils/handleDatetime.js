@@ -18,4 +18,8 @@ export const timestampToMomentObject = (time) => {
 export const getCurrentTimestamp = () => {
     return Math.ceil(new Date().getTime() / 1000);
 }
-
+export const dateToTimestamp = (date, format = 'MM-DD-YYYY') => {
+    const day = moment(date, format, true);
+    if (!day.isValid()) throw new Error(`invalid date [format: ${format}]`);
+    return day.unix();
+}

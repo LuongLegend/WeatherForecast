@@ -3,6 +3,7 @@ import { showLoading, hideLoading } from '../actions/ui'
 import { getHourlyFailed, getHourlySuccess } from '../actions/hourly'
 import { getDailyFailed, getDailySuccess } from '../actions/daily'
 import { getCurrentSuccess, getCurrentFailed } from '../actions/current'
+import { changeDateTime } from '../actions/position'
 import { GET_WEATHER_FORECAST } from '../constants/ActionTypes'
 import callApiWeather from '../utils/callApi'
 
@@ -21,13 +22,13 @@ function* watchFetchWeatherForecast() {
         yield put(getDailySuccess(daily));
         yield put(getHourlySuccess(hourly));
         yield put(getCurrentSuccess(current));
+        yield put(changeDateTime(daily[0].dt));
     }
     else {
         yield put(getHourlyFailed());
         yield put(getDailyFailed());
         yield put(getCurrentFailed());
     }
-    console.log(res);
     // if (res && res.status === 200) {
     //     //dispatch action
     //     yield put(getUserSuccess(res.data))

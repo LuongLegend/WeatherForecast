@@ -2,24 +2,28 @@ import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import App from '../App'
 import {
-    getWeatherForecast
+    getWeatherForecast,
 } from '../actions/index'
-function AppContainer({ onGetWeatherForecast, current }) {
+import {
+    changeDateTime
+} from '../actions/position'
+function AppContainer({ onGetWeatherForecast, current, daily, onChangeDateTime }) {
     useEffect(() => {
         onGetWeatherForecast();
     }, [onGetWeatherForecast])
 
     return (
-        <App current={current} />
+        <App current={current} daily={daily} onChangeDateTime={onChangeDateTime}/>
     )
 }
 
-const mapStateToProps = ({ current }) => {
-    return { current }
+const mapStateToProps = ({ current, daily }) => {
+    return { current, daily }
 }
 const mapDispatchToProps = (dispatch) => {
     return {
-        onGetWeatherForecast: () => dispatch(getWeatherForecast())
+        onGetWeatherForecast: () => dispatch(getWeatherForecast()),
+        onChangeDateTime: (dt) => dispatch(changeDateTime(dt)),
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(AppContainer)
