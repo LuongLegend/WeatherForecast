@@ -34,15 +34,29 @@
     }
 
     &__item3 {
+        grid-column-start: 1;
+        grid-column-end: 3;
         &::after{
             content: '%';
         }
     }
     &__item4 {
-        grid-column-start: 2;
-        grid-column-end: 4;
+        grid-column-start: 3;
+        grid-column-end: 5;
         &::after{
             content: 'm';
         }
+    }
+    &__item5 {
+        grid-column-start: 1;
+        grid-column-end: 5;
+    }
+    &__item6 {
+        grid-column-start: 1;
+        grid-column-end: 3;
+    }
+    &__item7 {
+        grid-column-start: 3;
+        grid-column-end: 5;
     }
 }

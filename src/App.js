@@ -7,7 +7,7 @@ function App(props) {
   const { current } = props;
   return (
     <div className='App'>
-      <input type='search' placeholder='Search...' />
+      {/* <input type='search' placeholder='Search...' /> */}
       <GlobalLoadingContainer />
       <WeatherForecastToday current={current} />
       <WeatherForecastDailyContainer />

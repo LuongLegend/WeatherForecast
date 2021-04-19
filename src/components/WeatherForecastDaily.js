@@ -17,7 +17,7 @@ export default function WeatherForecastDaily({ daily }) {
                 <img src={getIconWeather(weather[0].icon)} alt='daily' /><br />
                 <span className='daily-temp'>{temp.day}<sup>o</sup>C</span>
                 <span>{humidity}<sup>o</sup></span><br />
-                <span>Mưa to</span>
+                <span>{weather[0].description}</span>
             </div >
         )
     }

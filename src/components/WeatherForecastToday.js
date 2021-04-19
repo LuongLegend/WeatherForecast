@@ -24,6 +24,8 @@ export default function WeatherForecastToday(props) {
                         <div className="current-info__item3">Độ ẩm: {current.humidity}</div>
                         <div className="current-info__item4">Tầm nhìn: {current.visibility}</div>
                         <div className="current-info__item5">Nhiệt độ hóa sương: {current.dew_point}<sup>o</sup>C</div>
+                        <div className="current-info__item6">🌄 {timestampToDate(current.sunrise, 'LT')}</div>
+                        <div className="current-info__item7">🌅 {timestampToDate(current.sunset, 'LT')}</div>
                     </div>
                 </>
             }
