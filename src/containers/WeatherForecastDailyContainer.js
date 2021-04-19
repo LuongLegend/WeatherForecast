@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import WeatherForecastDaily from '../components/WeatherForecastDaily'
+import WeatherForecastDaily from '../components/WeatherForecastDaily/index'
 
 function WeatherForecastDailyContainer({ daily }) {
     return (

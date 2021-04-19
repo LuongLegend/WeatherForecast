@@ -1,8 +1,8 @@
 import React from 'react'
-import { getIconWeather } from '../utils/common'
-import { timestampToDate } from '../utils/handleDatetime'
-import './WeatherForecastDaily.scss'
-export default function WeatherForecastDaily({ daily }) {
+import { getIconWeather } from '../../utils/common'
+import { timestampToDate } from '../../utils/handleDatetime'
+import './index.scss'
+export default function ListItemDaily({ daily }) {
     const DailyItem = ({ dailyData }) => {
         const {
             dt,
@@ -21,15 +21,20 @@ export default function WeatherForecastDaily({ daily }) {
             </div >
         )
     }
+
     return (
         <>
-            Daily
-            <hr />
-            <div className='daily-list'>
-                {
-                    daily.map((item, index) => <DailyItem key={index} dailyData={item} />)
-                }
-            </div>
+            {
+                daily.length !== 0 && <>
+                    Daily
+                    <hr />
+                    <div className='daily-list'>
+                        {
+                            daily.map((item, index) => <DailyItem key={index} dailyData={item} />)
+                        }
+                    </div>
+                </>
+            }
         </>
     )
 }
