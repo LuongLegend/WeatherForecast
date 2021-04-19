@@ -1,21 +1,15 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import WeatherForecastDaily from '../components/WeatherForecastDaily'
-import {
-    changeDateTime
-} from '../actions/position'
-function WeatherForecastDailyContainer({ onChangeDateTime, daily, position }) {
+
+function WeatherForecastDailyContainer({ daily }) {
     return (
-        <WeatherForecastDaily daily={daily} dateTime={position.dt} onChangeDateTime={onChangeDateTime}/>
+        <WeatherForecastDaily daily={daily} />
     )
 }
 
-const mapStateToProps = ({ position, daily }) => {
-    return { position, daily }
+const mapStateToProps = ({ daily }) => {
+    return { daily }
 }
-const mapDispatchToProps = (dispatch) => {
-    return {
-        onChangeDateTime: (dt) => dispatch(changeDateTime(dt)),
-    }
-}
-export default connect(mapStateToProps, mapDispatchToProps)(WeatherForecastDailyContainer)
+
+export default connect(mapStateToProps)(WeatherForecastDailyContainer)

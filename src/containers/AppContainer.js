@@ -4,16 +4,13 @@ import App from '../App'
 import {
     getWeatherForecast,
 } from '../actions/index'
-import {
-    changeDateTime
-} from '../actions/position'
-function AppContainer({ onGetWeatherForecast, current, daily, onChangeDateTime }) {
+function AppContainer({ onGetWeatherForecast, current, daily }) {
     useEffect(() => {
         onGetWeatherForecast();
     }, [onGetWeatherForecast])
 
     return (
-        <App current={current} daily={daily} onChangeDateTime={onChangeDateTime}/>
+        <App current={current} daily={daily} />
     )
 }
 
@@ -23,7 +20,6 @@ const mapStateToProps = ({ current, daily }) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         onGetWeatherForecast: () => dispatch(getWeatherForecast()),
-        onChangeDateTime: (dt) => dispatch(changeDateTime(dt)),
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(AppContainer)

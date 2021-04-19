@@ -1,9 +1,7 @@
 import { takeEvery, call, put, delay, select } from 'redux-saga/effects' //non-blocking
 import { showLoading, hideLoading } from '../actions/ui'
-import { getHourlyFailed, getHourlySuccess } from '../actions/hourly'
 import { getDailyFailed, getDailySuccess } from '../actions/daily'
 import { getCurrentSuccess, getCurrentFailed } from '../actions/current'
-import { changeDateTime } from '../actions/position'
 import { GET_WEATHER_FORECAST } from '../constants/ActionTypes'
 import callApiWeather from '../utils/callApi'
 
@@ -18,14 +16,11 @@ function* watchFetchWeatherForecast() {
         lang: 'vi'
     }));
     if (res) {
-        const { current, daily, hourly } = res;
+        const { current, daily } = res;
         yield put(getDailySuccess(daily));
-        yield put(getHourlySuccess(hourly));
         yield put(getCurrentSuccess(current));
-        yield put(changeDateTime(daily[0].dt));
     }
     else {
-        yield put(getHourlyFailed());
         yield put(getDailyFailed());
         yield put(getCurrentFailed());
     }
