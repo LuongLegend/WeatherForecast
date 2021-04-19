@@ -4,22 +4,32 @@ import App from '../App'
 import {
     getWeatherForecast,
 } from '../actions/index'
-function AppContainer({ onGetWeatherForecast, current, daily }) {
+import {
+    changeAddress
+} from '../actions/position'
+function AppContainer({ onGetWeatherForecast, onChangeAddress, current, daily, position }) {
     useEffect(() => {
         onGetWeatherForecast();
-    }, [onGetWeatherForecast])
+        console.log(position)
+    }, [onGetWeatherForecast, position])
 
     return (
-        <App current={current} daily={daily} />
+        <App
+            current={current}
+            daily={daily}
+            handleChangeAddress={onChangeAddress}
+            position={position}
+        />
     )
 }
 
-const mapStateToProps = ({ current, daily }) => {
-    return { current, daily }
+const mapStateToProps = ({ current, daily, position }) => {
+    return { current, daily, position }
 }
 const mapDispatchToProps = (dispatch) => {
     return {
         onGetWeatherForecast: () => dispatch(getWeatherForecast()),
+        onChangeAddress: (address) => dispatch(changeAddress(address)),
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(AppContainer)

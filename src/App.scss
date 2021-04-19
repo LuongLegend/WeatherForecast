@@ -9,7 +9,17 @@ input[type="search"] {
   padding: 0.5em 1em;
   width: 60%;
   font-size: 1.6em;
+  margin: 1em auto;
   &:focus {
     box-shadow: 0px 1px 14px 5px rebeccapurple;
   }
+}
+
+input[type="button"] {
+  margin: 0 1em;
+  cursor: pointer;
+  padding: 0.375em 0.7em;
+  border-radius: 5em;
+  outline: none;
+  border: none;
 }

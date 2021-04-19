@@ -8,7 +8,7 @@ const currentReducer = (state = initialState, action) => {
         case GET_CURRENT_SUCCESS: 
             return action.current;
         case GET_CURRENT_FAILED:
-            return initialState;
+            return null;
         default:
             return state;
     }

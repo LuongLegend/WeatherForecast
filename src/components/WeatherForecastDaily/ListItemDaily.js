@@ -23,18 +23,11 @@ export default function ListItemDaily({ daily }) {
     }
 
     return (
-        <>
+        <div className='daily-list'>
             {
-                daily.length !== 0 && <>
-                    Daily
-                    <hr />
-                    <div className='daily-list'>
-                        {
-                            daily.map((item, index) => <DailyItem key={index} dailyData={item} />)
-                        }
-                    </div>
-                </>
+                daily.map((item, index) => <DailyItem key={index} dailyData={item} />)
             }
-        </>
+        </div>
+
     )
 }

@@ -4,12 +4,18 @@ import GlobalLoadingContainer from './containers/GlobalLoadingContainer'
 import WeatherForecastToday from './components/WeatherForecastToday'
 import WeatherForecastDailyContainer from './containers/WeatherForecastDailyContainer'
 function App(props) {
-  const { current } = props;
+  const { current, handleChangeAddress, position } = props;
   return (
     <div className='App'>
-      {/* <input type='search' placeholder='Search...' /> */}
+      <input
+        type='search'
+        placeholder='Search...'
+        onChange={e => handleChangeAddress(e.target.value)}
+      />
+      <br />
+      {!current && <strong>Không có dữ liệu</strong>}
       <GlobalLoadingContainer />
-      <WeatherForecastToday current={current} />
+      <WeatherForecastToday current={current} position={position} />
       <WeatherForecastDailyContainer />
     </div>
   );
