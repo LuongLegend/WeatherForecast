@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { getIconWeather, convertTempF } from '../utils/common'
+import { getIconWeather, convertTempF, convertMpStoKMpH } from '../utils/common'
 import { timestampToDate } from '../utils/handleDatetime'
 import './WeatherForecastToday.scss'
 export default function WeatherForecastToday(props) {
@@ -34,7 +34,7 @@ export default function WeatherForecastToday(props) {
                     <span className='current-description'>{current.weather[0].description}</span><br />
                     <div className='current-info'>
                         <div className="current-info__item1">Độ ẩm: {current.humidity}</div>
-                        <div className="current-info__item2">Tốc độ gió: {current.wind_speed}</div>
+                        <div className="current-info__item2">Tốc độ gió: {convertMpStoKMpH(current.wind_speed)}</div>
                         <div className="current-info__item3">Tầm nhìn: {current.visibility / 1000}</div>
                         <div className="current-info__item4">
                             Nhiệt độ hóa sương: {convertTempF(current.dew_point, position.temp)}
