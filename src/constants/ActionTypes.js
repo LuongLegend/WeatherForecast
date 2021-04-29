@@ -12,4 +12,5 @@ export const GET_CURRENT_FAILED = 'GET_CURRENT_FAILED'
 //position
 export const CHANGE_ADDRESS = 'CHANGE_ADDRESS'
 export const CHANGE_COORDS = 'CHANGE_COORDS'
+export const CHANGE_TEMP_TYPE = 'CHANGE_TEMP_TYPE'
 export const INIT_COORDS = 'INIT_COORDS'

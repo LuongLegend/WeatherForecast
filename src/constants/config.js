@@ -1,6 +1,7 @@
 export const API_HOST = 'https://api.openweathermap.org/data/2.5/onecall'
 export const GEOCODING_API_HOST = 'https://api.openweathermap.org/geo/1.0/direct'
 export const WEATHER_API_KEY = '2aa982d4428638fcd1d1c064faea01ca'
+export const GOOGLE_MAP_API = 'AIzaSyB5rgEr4jr-q2YMp9tavovct5R2y4lSXmQ'
 // export const CITY = [
 //     'TP.Hồ Chí Minh',
 // 	Hà Nội

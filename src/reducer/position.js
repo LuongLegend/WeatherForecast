@@ -2,11 +2,18 @@ import {
     CHANGE_ADDRESS,
     CHANGE_COORDS,
     INIT_COORDS,
+    CHANGE_TEMP_TYPE
 } from '../constants/ActionTypes'
-
+let lat = 0;
+let lon = 0;
+navigator.geolocation.watchPosition(position => {
+    lat = position.coords.latitude;
+    lon = position.coords.longitude;
+})
 const initialState = {
-    lat: '21.0244347',
-    lon: '105.79381839999999',
+    lat,
+    lon,
+    temp: "C",
     address: '',
 }
 
@@ -24,7 +31,14 @@ const positionReducer = (state = initialState, action) => {
                 lat,
                 lon
             }
-        case INIT_COORDS: 
+        case CHANGE_TEMP_TYPE:
+            const { temp } = action;
+            const newTemp = temp === "C" ? "F" : "C";
+            return {
+                ...state,
+                temp: newTemp
+            }
+        case INIT_COORDS:
             return initialState
         default:
             return state;

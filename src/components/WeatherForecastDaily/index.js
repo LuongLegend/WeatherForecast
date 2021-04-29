@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import './index.scss'
 import ChartDaily from './ChartDaily'
 import ListItemDaily from './ListItemDaily'
-export default function WeatherForecastDaily({ daily }) {
+export default function WeatherForecastDaily({ daily, temp }) {
     const [showChart, setShowChart] = useState(false);
     return (
         <>
@@ -23,7 +23,7 @@ export default function WeatherForecastDaily({ daily }) {
                     <hr />
                     {
                         !showChart ?
-                            <ListItemDaily daily={daily} /> :
+                            <ListItemDaily daily={daily} temp={temp}/> :
                             <ChartDaily daily={daily} />
                     }
                 </>

@@ -1,8 +1,8 @@
 import React from 'react'
-import { getIconWeather } from '../../utils/common'
+import { getIconWeather, convertTempF } from '../../utils/common'
 import { timestampToDate } from '../../utils/handleDatetime'
 import './index.scss'
-export default function ListItemDaily({ daily }) {
+export default function ListItemDaily({ daily, temp: tempType}) {
     const DailyItem = ({ dailyData }) => {
         const {
             dt,
@@ -15,8 +15,11 @@ export default function ListItemDaily({ daily }) {
                 { timestampToDate(dt, 'dddd')} < br />
                 { timestampToDate(dt, 'DD/MM/YYYY')} < br />
                 <img src={getIconWeather(weather[0].icon)} alt='daily' /><br />
-                <span className='daily-temp'>{temp.day}<sup>o</sup>C</span>
-                <span>{humidity}<sup>o</sup></span><br />
+                <span className='daily-temp'>{convertTempF(temp.day, tempType)}
+                    <sup>⚬</sup>
+                    {tempType}
+                </span>
+                <span>{humidity}<sup>⚬</sup></span><br />
                 <span>{weather[0].description}</span>
             </div >
         )

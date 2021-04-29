@@ -4,7 +4,7 @@ import GlobalLoadingContainer from './containers/GlobalLoadingContainer'
 import WeatherForecastToday from './components/WeatherForecastToday'
 import WeatherForecastDailyContainer from './containers/WeatherForecastDailyContainer'
 function App(props) {
-  const { current, handleChangeAddress, position } = props;
+  const { current, handleChangeAddress, position, handleChangeTempType } = props;
   return (
     <div className='App'>
       <input
@@ -15,7 +15,11 @@ function App(props) {
       <br />
       {!current && <strong>Không có dữ liệu</strong>}
       <GlobalLoadingContainer />
-      <WeatherForecastToday current={current} position={position} />
+      <WeatherForecastToday
+        current={current}
+        position={position}
+        handleChangeTempType={handleChangeTempType}
+      />
       <WeatherForecastDailyContainer />
     </div>
   );
